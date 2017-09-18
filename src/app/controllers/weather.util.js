@@ -32,6 +32,7 @@ logger.on('error', (err) => {
     logger.error("logger:", err);
 });
 
+// Initialize a new Dark Sky instance using a 3rd party wrapper for the API.
 const darksky = new DarkSky(config.DARK_SKY_API_KEY);
 
 module.exports = {
@@ -39,6 +40,8 @@ module.exports = {
      * Pad a single digit number with a 0.
      *
      * @param {Number} number The number being evaluated for padding.
+     * 
+     * @returns {Number} The padded number.
      */
     padWithZero: (number) => {
         if (number < 10)
@@ -48,13 +51,15 @@ module.exports = {
     },
 
     /**
-     * Given a location from the User, get the 5 day forecast for their area.
+     * Given a location from the User, get the forecast for each of the past 7 days
+     * for their area.
      *
-     * @param {Object} data The Object sent from Front-End with location and day.
+     * @param {Object} data The Object sent from front-end with location and day.
      * @param {Object} res The response object from Express which will be used
      *      to send the right HTTP status and message.
      */
     getLastWeekWeather: (data, res) => {
+    	// We don't want hour by hour data, just single data points for the whole day.
         darksky
         .options({
             latitude: data.lat,
@@ -83,6 +88,7 @@ module.exports = {
      *      to send the right HTTP status and message.
      */
     getLatLong: (data, res) => {
+    	// Hit the Google Maps Geocoding API endpoint for the location data.
         request(config.GOOGLE_MAPS_GEOCODING_URL + "?address=" + encodeURIComponent(data.zip), function (error, response, body) {
             if (error) {
                 logger.error("getLatLong():", error);
@@ -91,6 +97,7 @@ module.exports = {
                 });
             }
 
+			// Parse the JSON response and only send the Object that contains the latitude and longitude.
             const parsed = JSON.parse(body);
             res.status(200).json(parsed.results[0].geometry.location);
         });

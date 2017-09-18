@@ -1,7 +1,7 @@
 {
   "name": "weather-arcus",
   "version": "1.0.0",
-  "description": "Weather service showing full week forecast based on location.",
+  "description": "Weather service showing previous week's full forecast based on location.",
   "main": "server.js",
   "repository": {
     "type": "git",
@@ -14,15 +14,12 @@
   },
   "homepage": "https://github.com/chrismgala/weather-arcus#readme",
   "scripts": {
-    "start": "gulp",
+    "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@google/cloud-debug": "^0.9.3",
-    "@google/cloud-trace": "^0.6.3",
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
-    "angular-google-places-autocomplete": "^0.2.9",
     "angular-loading-bar": "^0.9.0",
     "angular-materialize": "^0.2.2",
     "angular-messages": "^1.5.8",

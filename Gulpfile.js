@@ -39,7 +39,6 @@ const paths = {
         'angular-messages/angular-messages.js',
         'materialize-css/dist/js/materialize.js',
         'angular-materialize/src/angular-materialize.js',
-        'angular-google-places-autocomplete/dist/autocomplete.min.js',
         'angular-animate/angular-animate.js',
     ],
     static: [`${root}/index.html`, `${root}/server.js`]

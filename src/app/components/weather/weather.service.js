@@ -7,10 +7,11 @@ function WeatherService($http, $q) {
      * @ngdoc method
      * @methodOf components.weather.WeatherService
      * @name getLastWeekWeather
-     * @description Logs a member in through a dedicated Express route.
+     * @description Gets the last week's weather forecast.
      *
      * @param {Object} location The location Object containing latitude and longitude.
-     * @param {Object} day The number of days before that the User wants weather for.
+     * @param {String} day The number of days before that the User wants weather for.
+     * 
      * @returns {Promise} An HTTP response Promise.
      **/
     this.getLastWeekWeather = (location, day) => {
@@ -21,9 +22,10 @@ function WeatherService($http, $q) {
      * @ngdoc method
      * @methodOf components.weather.WeatherService
      * @name getLatLong
-     * @description Logs a member in through a dedicated Express route.
+     * @description Gets the latitude and longitude from a zip code.
      *
      * @param {String} zip The zip code of the User.
+     * 
      * @returns {Promise} An HTTP response Promise.
      **/
     this.getLatLong = (zip) => {
@@ -37,7 +39,7 @@ function WeatherService($http, $q) {
  * @module components.weather
  *
  * @description
- * Provides HTTP methods for our authentication methods.
+ * Provides HTTP methods for our weather methods.
  */
 angular
 .module('components.weather')

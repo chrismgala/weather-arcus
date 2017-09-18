@@ -5,8 +5,9 @@
  *
  *
  * @description
- * This is the common app Component. It is the parent state for all auth states.
- * The default redirect state is 'home' .
+ * This is the common app component. It is the parent state for any other 
+ * states including the weather state and it loads in the template file.
+ * The default redirect state is 'weather.past' .
  **/
 angular
 .module('common')

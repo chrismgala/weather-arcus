@@ -12,18 +12,6 @@ const config = require('./config/config');
 const port = config.PORT || 8080,
     app = express();
 
-var errorHandler;
-
-if (process.env.NODE_ENV === 'production') {
-  require('@google/cloud-trace').start();
-  errorHandler = require('@google/cloud-errors').start();
-  app.use(errorHandler.express);
-}
-
-if (process.env.GCLOUD_PROJECT) {
-  require('@google-cloud/debug-agent').start();
-}
-
 /* CONFIGURATION */
 // Configure the Winston Logger before usage
 let customLevels = {
@@ -65,14 +53,8 @@ logger.on('error', function (err) {
 });
 
 // Set the static files locations
-// Putting this before the session middleware avoids sessions for these static resources
 app.use(express.static(__dirname + '/app'));
 app.use(express.static(__dirname + '/../node_modules'));
-
-// // Connect to database
-// mongoose.connect(config.MONGO_DEV, {
-//     useMongoClient: true
-// });
 
 // parse the following: application/x-www-form-urlencoded, application/json, application/vnd.api+json as json
 app.use(bodyParser.urlencoded({extended: true}));

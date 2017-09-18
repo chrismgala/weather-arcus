@@ -6,8 +6,8 @@ function PastController(WeatherService, $state, $q, $window) {
      * @name PastController#$onInit
      *
      * @description
-     * Initialize member variable in Controller.
-     * Set attributes to empty strings and ask for weather info.
+     * Initialize weather data and other config variables in Controller.
+     * Set attributes to empty strings, 0, or null and prompt for location data.
      */
     ctrl.$onInit = () => {
         Materialize.toast("Getting forecast", 5000);
@@ -140,7 +140,7 @@ function PastController(WeatherService, $state, $q, $window) {
  * @description
  * Stick the above function in as the Controller.
  * This will serve as the Controller for the past component.
- * It handles communication with the back-end to get initial weather data.
+ * It handles communication with the back-end to get the past week's weather data.
  */
 angular
 .module('components.weather')

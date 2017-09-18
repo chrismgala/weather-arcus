@@ -1,13 +1,13 @@
 /**
  * @ngdoc directive
  * @name past
- * @module components
- *
- * @requires WeatherService
+ * @module components.weather
  *
  * @description
- * This is the past component within the components module.
- * It includes configuration for the docs state'/past'.
+ * This is the past component within the components.weather module.
+ * It includes configuration for the past state '/past' which is under the 'weather' state.
+ * 
+ * Any non-matching routes will redirect to 'weather/past'.
  **/
 angular
 .module('components.weather')

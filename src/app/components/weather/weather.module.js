@@ -6,8 +6,8 @@
  * @requires ui.router
  *
  * @description
- * This is the common module. It includes a run method that imports all necessary modules
- * and configures the angular-loading-bar.
+ * This is the components.weather module. It setups all components including child components
+ * with the UI Router for configuring their states and resolves.
  *
  **/
 angular

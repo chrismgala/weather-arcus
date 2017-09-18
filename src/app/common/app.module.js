@@ -7,12 +7,11 @@
  * @requires angular-loading-bar
  * @requires ngMessages
  * @requires ui.materialize
- * @requires google.places
  * @requires ngAnimate
  *
  * @description
  * This is the common module. It includes a run method that imports all necessary modules
- * and configures the angular-loading-bar.
+ * and configures the angular-loading-bar for any activity with the back-end or state transitions.
  *
  **/
 angular
@@ -21,7 +20,6 @@ angular
         'angular-loading-bar',
         'ngMessages',
         'ui.materialize',
-        'google.places',
         'ngAnimate'
     ])
     .run(function ($transitions, cfpLoadingBar) {
