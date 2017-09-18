@@ -12,6 +12,18 @@ const config = require('./config/config');
 const port = config.PORT || 8080,
     app = express();
 
+var errorHandler;
+
+if (process.env.NODE_ENV === 'production') {
+  require('@google/cloud-trace').start();
+  errorHandler = require('@google/cloud-errors').start();
+  app.use(errorHandler.express);
+}
+
+if (process.env.GCLOUD_PROJECT) {
+  require('@google-cloud/debug-agent').start();
+}
+
 /* CONFIGURATION */
 // Configure the Winston Logger before usage
 let customLevels = {
