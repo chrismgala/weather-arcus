@@ -25,10 +25,13 @@ Visit https://weather-arcus.appspot.com/weather/past.
 1. Create your own API keys for:
 
       Dark Sky (https://darksky.net/dev/register)
+      
       Google Maps Geocoding (https://developers.google.com/maps/documentation/geocoding/start)
 
       Insert these API keys into the config.js as:
+      
       DARK_SKY_API_KEY: '<API_KEY>'
+      
       GOOGLE_MAPS_GEOCODING_API_KEY: '<API_KEY>'
         
 1. Build and start server:
