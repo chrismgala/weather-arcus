@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="row valign-wrapper">
+        <div class="col s8 valign center-align">
+            <h4>Last Week's Forecast</h4>
+            <p>Here is the weather for the past 7 days in your area.</p>
+        </div>
+        <div class="col s4 valign">
+            <!-- Switch -->
+            <div class="switch">
+                <label>
+                    °F
+                    <input type="checkbox"
+                           ng-model="$ctrl.celcius">
+                    <span class="lever"></span>
+                    °C
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-if="!$ctrl.geolocation">
+        <form name="zipForm" novalidate ng-submit="$ctrl.submitForm();">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fa fa-location-arrow prefix" aria-hidden="true"></i>
+                    <label for="zip">
+                        Zip Code
+                    </label>
+                    <input
+                            type="text"
+                            id="zip"
+                            name="zip"
+                            class="validate"
+                            pattern="\d{5}"
+                            ng-model="$ctrl.zip"
+                            required>
+
+                    <div class="error" ng-messages="zipForm.zip.$error" ng-if="zipForm.zip.$dirty">
+                        <p ng-message="required" class="error-msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> This field is required</p>
+                        <p ng-message="pattern" class="error-msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> This field must have exactly 6 numbers</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn waves-effect waves-light" type="submit" ng-disabled="zipForm.$invalid">
+                Submit
+            </button>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m4 weather" ng-repeat="weather in $ctrl.weatherData track by $index">
+            <div class="card hoverable {{ ::weather.icon }}">
+                <div class="card-content">
+                    <span class="card-title activator">
+                        {{ ::weather.date[0] }}, {{ ::weather.date[1] }} {{ ::weather.date[2] }} - {{ ::weather.iconString }}
+                        <i class="fa fa-ellipsis-v right" aria-hidden="true"></i>
+                    </span>
+                    <p>
+                        {{ ::weather.summary }}
+                    </p>
+
+                    <p ng-show="$ctrl.celcius === false">
+                        <b>High:</b> {{ ::weather.tempHighFarenheight }}&#176;F
+                    </p>
+
+                    <p ng-show="$ctrl.celcius === false">
+                        <b>Low:</b> {{ ::weather.tempLowFarenheight }}&#176;F
+                    </p>
+
+                    <p ng-show="$ctrl.celcius === true">
+                        <b>High:</b> {{ ::weather.tempHighCelcius }}&#176;C
+                    </p>
+
+                    <p ng-show="$ctrl.celcius === true">
+                        <b>Low:</b> {{ ::weather.tempLowCelcius }}&#176;C
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title">
+                        {{ ::weather.date[0] }}, {{ ::weather.date[1] }} {{ ::weather.date[2] }} - {{ ::weather.iconString }}
+                        <i class="fa fa-times right" aria-hidden="true"></i>
+                    </span>
+                    <p>
+                        <b>Precipitation:</b> {{ ::weather.precipProb }}%
+                    </p>
+
+                    <p>
+                        <b>Humidity:</b> {{ ::weather.humidity }}%
+                    </p>
+
+                    <p>
+                        <b>Wind:</b> {{ ::weather.windSpeed }} mph
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

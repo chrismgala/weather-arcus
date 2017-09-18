@@ -1,0 +1,18 @@
+{
+  "curly": false,
+  "eqeqeq": true,
+  "undef": true,
+  "globals": {
+    "jQuery": true,
+    "angular": true,
+    "Materialize": true,
+    "$": true,
+    "document": true,
+    "module": true,
+    "require": true,
+    "process": true,
+    "__dirname": true
+  },
+  "esversion": 6,
+  "devel": true
+}

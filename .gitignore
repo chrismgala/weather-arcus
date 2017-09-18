@@ -1,0 +1,8 @@
+# Generated files
+
+# Dependency directories
+/node_modules
+/dist
+/.idea
+
+# Source files

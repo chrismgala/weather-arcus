@@ -1,0 +1,32 @@
+<!doctype html>
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="root" ng-strict-di>
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Optimize mobile viewport -->
+    <base href="/app"/>
+
+    <!-- STYLES / FONTS / ICONS -->
+    <link rel="stylesheet" type="text/css" href="/materialize-css/dist/css/materialize.min.css"> <!-- MATERIALIZE CSS -->
+    <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css"> <!-- FONT AWESOME -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/styles.css"> <!-- STYLES -->
+    <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet"> <!-- GOOGLE FONTS -->
+
+    <!-- SCRIPTS -->
+    <script src="/assets/js/vendor.js"></script>
+    <script src="/assets/js/bundle.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG6oqdX9k9h6gFOI3kh_NLX8GnjLakLVM&libraries=places" type="text/javascript"></script>
+
+    <!-- Keep the '{{}}' from showing to the User BEFORE the data renders by placing it AFTER the angular scripts -->
+    <title>{{title}}</title>
+    <link rel="icon" href="/assets/img/icon.png">
+</head>
+
+<body>
+<root>
+    <span class="loader">Loading...</span>
+</root>
+</body>
+</html>
